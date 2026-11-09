@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>发言倒计时</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./timer.js" defer></script>
+  </head>
+  <body>
+    <main class="timer-app" aria-label="发言倒计时">
+      <section class="timer-surface" id="timerSurface" data-state="ready">
+        <header class="brand-row">
+          <div class="brand-icon" aria-hidden="true">
+            <span class="hourglass-top"></span>
+            <span class="hourglass-mid"></span>
+            <span class="hourglass-bottom"></span>
+          </div>
+          <div>
+            <h1>发言倒计时</h1>
+            <p id="statusLine" aria-live="assertive">准备</p>
+          </div>
+        </header>
+
+        <form class="control-row" id="timerForm" autocomplete="off">
+          <label class="time-field">
+            <span>分</span>
+            <input id="minutesInput" name="minutes" type="number" min="0" max="999" inputmode="numeric" value="5" />
+          </label>
+          <label class="time-field">
+            <span>秒</span>
+            <input id="secondsInput" name="seconds" type="number" min="0" max="59" inputmode="numeric" value="0" />
+          </label>
+          <div class="actions">
+            <button class="primary" id="startButton" type="submit">开始</button>
+            <button id="pauseButton" type="button" hidden>暂停</button>
+            <button id="resetButton" type="button">重置</button>
+          </div>
+        </form>
+
+        <div class="display-wrap">
+          <div class="time-display" id="timeDisplay" aria-live="polite">05:00</div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
